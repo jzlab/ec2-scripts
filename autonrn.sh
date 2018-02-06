@@ -1,20 +1,29 @@
+#!/usr/bin/env bash
+
+# Assuming Ubuntu based linux image
+
 # Install the relevant system requirements
 
-sudo apt-get update
-sudo apt-get install -y python
-sudo apt-get install -y python-dev
+# Install NEURON dependencies
 sudo apt-get install -y libx11-dev
 sudo apt-get install -y libxext-dev
 sudo apt-get install -y mpich
 sudo apt-get install -y libncurses-dev
 
-sudo apt-get install python-pip
+# Install python 2.7 and pip
+sudo apt-get update
+sudo apt-get install -y python
+sudo apt-get install -y python-dev
+sudo apt-get install -y python-pip
 pip install --upgrade pip
+
+# Install needed python packages
 pip install mpi4pi
 pip install neo
 pip install numpy
 pip install lazyarray
 
+# DEPRECATED - Old way of installing python libraries without pip
 #sudo apt-get install -y python-numpy
 #sudo apt-get install -y python-lazyarray
 #sudo apt-get install -y python-neo
@@ -23,7 +32,7 @@ pip install lazyarray
 mkdir ~/neuron
 cd ~/neuron/
 
-# Pull files for installing Neuron
+# Pull Source files for installing NEURON and IV
 wget http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/nrn-7.4.tar.gz
 wget http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/iv-19.tar.gz
 
@@ -55,5 +64,4 @@ sudo python setup.py install
 sudo echo "# Add Neuron and IV to path variable" >> ~/.bashrc
 sudo echo 'export PATH="$HOME/neuron/nrn/x86_64/bin:$PATH"' >> ~/.bashrc
 sudo echo 'export PATH="$HOME/neuron/iv/x86_64/bin:$PATH"' >> ~/.bashrc
-
 source ~/.bashrc
