@@ -3,6 +3,8 @@
 # Assuming Ubuntu based linux image
 
 # Install the relevant system requirements
+sudo apt-get update
+sudo apt-get install -y build-essential
 
 # Install NEURON dependencies
 sudo apt-get install -y libx11-dev
@@ -11,7 +13,6 @@ sudo apt-get install -y mpich
 sudo apt-get install -y libncurses-dev
 
 # Install python 2.7 and pip
-sudo apt-get update
 sudo apt-get install -y python
 sudo apt-get install -y python-dev
 sudo apt-get install -y python-pip
